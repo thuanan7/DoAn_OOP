@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\QuanLyCuaHang_Entities\QuanLyCuaHang_Entities.csproj" />
+    <ProjectReference Include="..\QuanLyCuaHang_Services\QuanLyCuaHang_Services.csproj" />
+  </ItemGroup>
+
+</Project>
