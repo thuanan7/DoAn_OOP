@@ -1,0 +1,14 @@
+﻿@page
+@model Web_QuanLyCuaHang_OOP.Pages.LoaiHang.MH_Them_LoaiHangModel
+@{
+    ViewData["title"] = "Them Loai Hang";
+}
+
+<form method="post">
+    <label for="id">Nhập Id Loại Hàng:</label><br/>
+    <input type="text" name="id" value="" required/><br/>
+    <label for="name">Nhập Tên Loại Hàng:</label><br/>
+    <input type="text" name="name" value="" required/><br/><br/>
+    <input type="submit" value="Thêm"/>
+</form>
+@Model.chuoiThongBao
