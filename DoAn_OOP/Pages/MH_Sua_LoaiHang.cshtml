@@ -1,0 +1,25 @@
+﻿@page
+@model Web_QuanLyCuaHang_OOP.Pages.MH_Sua_LoaiHangModel
+@{
+}
+
+<h4>Sửa Loại Hàng</h4>
+
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Tên</th>
+    </tr>
+    <tr>
+        <td>@Model.lh.Id</td>
+        <td>@Model.lh.Name</td>
+    </tr>
+</table>
+<br />
+<form method="post">
+    <label for="newName">Nhập Tên Loại Hàng: </label><br />
+    <input type="text" name="newName" value="@Model.lh.Name" required/><br /><br />
+
+    <input type="submit" value="Sửa" />
+</form>
+@Model.chuoiThongBao

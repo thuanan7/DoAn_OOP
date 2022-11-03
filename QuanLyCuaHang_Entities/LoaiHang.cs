@@ -10,6 +10,11 @@ namespace QuanLyCuaHang_Entities
     {
         public string Id { get; set; }
         public string Name { get; set; }
-        private List<MatHang> _listMatHang;
+
+        public LoaiHang()
+        {
+            Id = string.Empty;
+            Name = string.Empty;
+        }
     }
 }

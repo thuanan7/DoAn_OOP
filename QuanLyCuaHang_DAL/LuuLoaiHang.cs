@@ -6,14 +6,22 @@ namespace QuanLyCuaHang_DAL
     public class LuuLoaiHang : ILuuLoaiHang
     {
         private string filePath = "./files/LoaiHang.txt";
+        private void LuuListSanPham(List<LoaiHang> ds)
+        {
+            StreamWriter sw = new StreamWriter(filePath);
+            string json = JsonConvert.SerializeObject(ds);
+            sw.Write(json);
+            sw.Close();
+        }
+
         public void CreateLoaiHang(LoaiHang lh)
         {
-            var dsLoaiHang = ReadLoaiHang();
+            var dsLoaiHang = ReadListLoaiHang();
             dsLoaiHang.Add(lh);
             LuuListSanPham(dsLoaiHang);
         }
 
-        public List<LoaiHang> ReadLoaiHang()
+        public List<LoaiHang> ReadListLoaiHang()
         {
             StreamReader sr = new StreamReader(filePath);
             string json = sr.ReadToEnd();
@@ -21,13 +29,44 @@ namespace QuanLyCuaHang_DAL
             sr.Close();
             return dsLoaiHang;
         }
-
-        private void LuuListSanPham(List<LoaiHang> ds)
+        public LoaiHang ReadLoaiHangById(string id)
         {
-            StreamWriter sw = new StreamWriter(filePath);
-            string json = JsonConvert.SerializeObject(ds);
-            sw.Write(json);
-            sw.Close();
+            var dsLoaiHang = ReadListLoaiHang();
+            foreach (LoaiHang hang in dsLoaiHang)
+            {
+                if (hang.Id == id)
+                    return hang;
+            }
+            return null;
+        }
+
+        public bool UpdateLoaiHang(LoaiHang lh)
+        {
+            var dsLoaiHang = ReadListLoaiHang();
+            for (int i = 0; i < dsLoaiHang.Count; i++)
+            {
+                if (dsLoaiHang[i].Id == lh.Id)
+                {
+                    dsLoaiHang[i] = lh;
+                    LuuListSanPham(dsLoaiHang);
+                    return true;
+                }
+            }
+            return false;
+        }
+        public bool DeleteLoaiHang(string id)
+        {
+            var dsLoaiHang = ReadListLoaiHang();
+            for (int i = 0; i < dsLoaiHang.Count; i++)
+            {
+                if (dsLoaiHang[i].Id == id)
+                {
+                    dsLoaiHang.RemoveAt(i);
+                    LuuListSanPham(dsLoaiHang);
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

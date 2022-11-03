@@ -5,6 +5,7 @@
         public string Id { get; set; }
         public string Name { get; set; }
         public string Company { get; set; }
+        public string CategoryId { get; set; }
         public string Category { get; set; }
         public int Year { get; set; }
         public DateTime Exp { get; set; }
@@ -14,6 +15,7 @@
         {
             Id = "0";
             Name = "null";
+            CategoryId = "null";
             Category = "null";
             Company = "null";
             Year = 0;

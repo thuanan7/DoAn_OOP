@@ -1,0 +1,23 @@
+﻿@page
+@model Web_QuanLyCuaHang_OOP.Pages.MH_Xoa_LoaiHangModel
+@{
+}
+
+<h4>Xóa Loại Hàng</h4>
+
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Tên</th>
+    </tr>
+    <tr>
+        <td>@Model.lh.Id</td>
+        <td>@Model.lh.Name</td>
+    </tr>
+</table>
+<span>Bạn có chắc chắn muốn xóa?</span>
+<br />
+<form method="post">
+    <input type="submit" value="Xóa" />
+</form>
+@Model.chuoiThongBao

@@ -1,0 +1,35 @@
+﻿@page
+@model Web_QuanLyCuaHang_OOP.Pages.MH_DanhSach_LoaiHangModel
+@{
+    ViewData["Title"] = "Danh Sách Loại Hàng";
+}
+
+<h4>Danh Sách Loại Hàng</h4>
+
+<form method="post">
+    <input type="text" name="tukhoa" value="" placeholder="Từ Khóa" />
+    <input type="submit" value="Search"/>
+</form>
+<a href="/MH_Them_LoaiHang">Thêm Loại Hàng</a>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Tên</th>
+        <th></th>
+    </tr>
+    @foreach (var s in Model.dsLoaiHang)
+    {
+        <tr>
+            <td>@s.Id</td>
+            <td>@s.Name</td>
+
+            <td>
+                <a href="/MH_Sua_LoaiHang?Id=@s.Id">Sửa</a>
+                <span>-</span>
+                <a href="/MH_Xoa_LoaiHang?Id=@s.Id">Xóa</a>
+            </td>
+        </tr>
+    }
+    </>
+</table>
+@Model.chuoiThongBao

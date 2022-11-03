@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using QuanLyCuaHang_Services;
 
-namespace Web_QuanLyCuaHang_OOP.Pages.LoaiHang
+namespace Web_QuanLyCuaHang_OOP.Pages
 {
     public class MH_Them_LoaiHangModel : PageModel
     {
@@ -12,7 +12,7 @@ namespace Web_QuanLyCuaHang_OOP.Pages.LoaiHang
         public string Id { get; set; }
         [BindProperty]
         public string Name { get; set; }
-        private IXuLyCuaHang _xuLyCuaHang = new XuLyCuaHang();
+        private IXuLyLoaiHang _xuLyLoaiHang = new XuLyLoaiHang();
         public void OnGet()
         {
             chuoiThongBao = string.Empty;
@@ -23,9 +23,9 @@ namespace Web_QuanLyCuaHang_OOP.Pages.LoaiHang
             
             try
             {
-                _xuLyCuaHang.CreateLoaiHang(Id.Trim(), Name.Trim());
+                _xuLyLoaiHang.CreateLoaiHang(Id.Trim(), Name.Trim());
                 chuoiThongBao = "Thêm thành công!";
-                //redirect o day
+                Response.Redirect("/LoaiHangPages/MH_DanhSach_LoaiHang");
             }
             catch (Exception ex)
             {

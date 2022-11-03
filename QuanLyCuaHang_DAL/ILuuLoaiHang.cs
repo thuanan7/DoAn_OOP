@@ -10,6 +10,9 @@ namespace QuanLyCuaHang_DAL
     internal interface ILuuLoaiHang
     {
         void CreateLoaiHang(LoaiHang lh);
-        List<LoaiHang> ReadLoaiHang();
+        List<LoaiHang> ReadListLoaiHang();
+        LoaiHang ReadLoaiHangById(string id);
+        bool UpdateLoaiHang(LoaiHang lh);
+        bool DeleteLoaiHang(string id);
     }
 }
