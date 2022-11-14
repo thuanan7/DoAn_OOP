@@ -11,5 +11,8 @@ namespace QuanLyCuaHang_Services
     {
         void CreateMatHang(string categoryId, string name, string company, int year, DateTime exp);
         List<MatHang> ReadListMatHang(string tuKhoa="");
+        MatHang ReadMatHangById(string id);
+        void UpdateMatHang(MatHang mh);
+        void DeleteMatHang(string id);
     }
 }

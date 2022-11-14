@@ -12,5 +12,7 @@ namespace QuanLyCuaHang_DAL
         void CreateMatHang(MatHang mh, string idPrefix="");
         List<MatHang> ReadListMatHang();
         MatHang ReadMatHangById(string id);
+        bool UpdateMatHang(MatHang mh);
+        bool DeleteMatHang(string id);
     }
 }

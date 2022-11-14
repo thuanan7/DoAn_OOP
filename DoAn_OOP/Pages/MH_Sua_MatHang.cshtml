@@ -1,0 +1,46 @@
+﻿@page
+@model Web_QuanLyCuaHang_OOP.Pages.MH_Sua_MatHangModel
+@{
+    ViewData["title"] = "Sửa Mặt Hàng";
+}
+
+<h4>@ViewData["title"]</h4>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Tên</th>
+        <th>Công Ty</th>
+        <th>Loại Hàng</th>
+        <th>Năm Sản Xuất</th>
+        <th>Hạn Sử Dụng</th>
+        <th>Số Lượng</th>
+    </tr>
+    <tr>
+        <td>@Model.mh.Id</td>
+        <td>@Model.mh.Name</td>
+        <td>@Model.mh.Company</td>
+        <td>@Model.mh.Category</td>
+        <td>@Model.mh.Year</td>
+        <td>@Model.mh.Exp.ToString("dd/MM/yyyy")</td>
+        <td>@Model.mh.SoLuong</td>
+    </tr>
+    </>
+</table>
+<br />
+<form method="post">
+
+    <label for="newCategoryID">Nhập ID Loại Hàng: </label><br />
+    <input type="text" name="newCategoryID" value="@Model.mh.CategoryId" required /><br />
+    <label for="newName">Nhập Tên Mặt Hàng: </label><br />
+    <input type="text" name="newName" value="@Model.mh.Name" required /><br />
+    <label for="newCompany">Nhập Tên Công Ty: </label><br />
+    <input type="text" name="newCompany" value="@Model.mh.Company" required /><br />
+    <label for="newYear">Nhập Năm Sản Xuất: </label><br />
+    <input type="number" name="newYear" value="@Model.mh.Year" required /><br />
+    <label for="newExp">Nhập Tên Mặt Hàng: </label><br />
+    <input type="date" name="newExp" value="@Model.mh.Exp.ToString("yyyy/MM/dd".Replace('/','-'))" required /><br />
+
+    <input type="submit" value="Sửa" />
+</form>
+@Model.chuoiThongBao

@@ -1,1 +1,1 @@
-[{"Id":"lh3_1","Name":"mh1","Company":"mh1","CategoryId":"lh3","Category":"test1","Year":1999,"Exp":"2022-11-04T00:00:00","SoLuong":0},{"Id":"lh2_1","Name":"mh2","Company":"mh2","CategoryId":"lh2","Category":"aaaaaa","Year":1999,"Exp":"2022-11-14T00:00:00","SoLuong":0}]
+[{"Id":"lh3_1","Name":"mh1","Company":"mh1","CategoryId":"lh3","Category":"test1","Year":1999,"Exp":"2022-11-04T00:00:00","SoLuong":0}]

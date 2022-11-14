@@ -1,0 +1,36 @@
+﻿@page
+@model Web_QuanLyCuaHang_OOP.Pages.MH_Xoa_MatHangModel
+@{
+    ViewData["title"] = "Xóa Mặt Hàng";
+}
+
+<h4>@ViewData["title"]</h4>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Tên</th>
+        <th>Công Ty</th>
+        <th>Loại Hàng</th>
+        <th>Năm Sản Xuất</th>
+        <th>Hạn Sử Dụng</th>
+        <th>Số Lượng</th>
+    </tr>
+    <tr>
+        <td>@Model.mh.Id</td>
+        <td>@Model.mh.Name</td>
+        <td>@Model.mh.Company</td>
+        <td>@Model.mh.Category</td>
+        <td>@Model.mh.Year</td>
+        <td>@Model.mh.Exp.ToString("dd/MM/yyyy")</td>
+        <td>@Model.mh.SoLuong</td>
+    </tr>
+    </>
+</table>
+
+<span>Bạn có chắc chắn muốn xóa?</span>
+<br />
+<form method="post">
+    <input type="submit" value="Xóa" />
+</form>
+@Model.chuoiThongBao

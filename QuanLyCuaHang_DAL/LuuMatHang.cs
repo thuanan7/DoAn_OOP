@@ -54,5 +54,33 @@ namespace QuanLyCuaHang_DAL
             }
             return null;
         }
+        public bool UpdateMatHang(MatHang mh)
+        {
+            var dsMatHang = ReadListMatHang();
+            for (int i = 0; i < dsMatHang.Count; i++)
+            {
+                if (dsMatHang[i].Id == mh.Id)
+                {
+                    dsMatHang[i] = mh;
+                    LuuListSanPham(dsMatHang);
+                    return true;
+                }
+            }
+            return false;
+        }
+        public bool DeleteMatHang(string id)
+        {
+            var dsMatHang = ReadListMatHang();
+            for (int i = 0; i < dsMatHang.Count; i++)
+            {
+                if (dsMatHang[i].Id == id)
+                {
+                    dsMatHang.RemoveAt(i);
+                    LuuListSanPham(dsMatHang);
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

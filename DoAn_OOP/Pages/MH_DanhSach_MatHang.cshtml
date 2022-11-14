@@ -19,6 +19,7 @@
         <th>Loại Hàng</th>
         <th>Năm Sản Xuất</th>
         <th>Hạn Sử Dụng</th>
+        <th>Số Lượng</th>
         <th></th>
     </tr>
     @foreach (var s in Model.dsMatHang)
@@ -30,6 +31,7 @@
             <td>@s.Category</td>
             <td>@s.Year</td>
             <td>@s.Exp.ToString("dd/MM/yyyy")</td>
+            <td>@s.SoLuong</td>
             <td>
                 <a href="/MH_Sua_MatHang?Id=@s.Id">Sửa</a>
                 <span>-</span>
