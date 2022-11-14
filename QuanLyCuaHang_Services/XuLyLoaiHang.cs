@@ -6,6 +6,7 @@ namespace QuanLyCuaHang_Services
     public class XuLyLoaiHang : IXuLyLoaiHang
     {
         private ILuuLoaiHang _luuLoaiHang = new LuuLoaiHang();
+        private ILuuMatHang _luuMatHang = new LuuMatHang();
         public void CreateLoaiHang(string id, string name)
         {
             if (string.IsNullOrEmpty(id))
@@ -66,6 +67,8 @@ namespace QuanLyCuaHang_Services
             bool res = _luuLoaiHang.UpdateLoaiHang(lh);
             if (!res)
                 throw new Exception("Không tìm thấy Loại Hàng để sửa!");
+
+            _luuMatHang.UpdateCategoryMatHang(lh);
         }
         public void DeleteLoaiHang(string id)
         {

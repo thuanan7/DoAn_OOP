@@ -19,19 +19,25 @@ namespace QuanLyCuaHang_DAL
             sw.Close();
         }
 
-         public void CreateMatHang(MatHang mh, string idPrefix="")
+        private string CreateIdMatHang(string categoryId)
         {
             var dsMatHang = ReadListMatHang();
-            int max = 1;
+            int max = 0;
             foreach (var s in dsMatHang)
             {
                 string[] arr = s.Id.Split('_');
                 int x = int.Parse(arr[1]);
-                if (x > max)
+                if (s.CategoryId == categoryId && x > max)
                     max = x;
             }
+            max++;
+            return categoryId + "_" + max.ToString();
+        }
 
-            mh.Id = idPrefix + "_" + max.ToString();
+         public void CreateMatHang(MatHang mh)
+        {
+            var dsMatHang = ReadListMatHang();
+            mh.Id = CreateIdMatHang(mh.CategoryId);
             dsMatHang.Add(mh);
             LuuListSanPham(dsMatHang);
         }
@@ -61,12 +67,27 @@ namespace QuanLyCuaHang_DAL
             {
                 if (dsMatHang[i].Id == mh.Id)
                 {
+                    if (mh.CategoryId != dsMatHang[i].CategoryId)
+                        mh.Id = CreateIdMatHang(mh.CategoryId);
+
                     dsMatHang[i] = mh;
                     LuuListSanPham(dsMatHang);
                     return true;
                 }
             }
             return false;
+        }
+        public void UpdateCategoryMatHang(LoaiHang lh)
+        {
+            var dsMatHang = ReadListMatHang();
+            for (int i = 0; i < dsMatHang.Count; i++)
+            {
+                if (dsMatHang[i].CategoryId == lh.Id)
+                {
+                    dsMatHang[i].Category = lh.Name;
+                }
+            }
+            LuuListSanPham(dsMatHang);
         }
         public bool DeleteMatHang(string id)
         {

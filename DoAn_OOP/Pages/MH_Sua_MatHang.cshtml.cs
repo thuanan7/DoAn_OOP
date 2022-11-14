@@ -57,11 +57,19 @@ namespace Web_QuanLyCuaHang_OOP.Pages
                 };
                 _xuLyMatHang.UpdateMatHang(MatHang);
                 mh = MatHang;
-                chuoiThongBao = "Sửa thành công!";
+                Response.Redirect($"./MH_Sua_MatHang?Id={mh.Id}");
             }
             catch (Exception ex)
             {
                 chuoiThongBao = ex.Message;
+                try
+                {
+                    mh = _xuLyMatHang.ReadMatHangById(ID);
+                }
+                catch (Exception ex2)
+                {
+                    chuoiThongBao = ex2.Message;
+                }
             }
         }
     }

@@ -9,10 +9,11 @@ namespace QuanLyCuaHang_DAL
 {
     public interface ILuuMatHang
     {
-        void CreateMatHang(MatHang mh, string idPrefix="");
+        void CreateMatHang(MatHang mh);
         List<MatHang> ReadListMatHang();
         MatHang ReadMatHangById(string id);
         bool UpdateMatHang(MatHang mh);
+        void UpdateCategoryMatHang(LoaiHang lh);
         bool DeleteMatHang(string id);
     }
 }

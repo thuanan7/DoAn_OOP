@@ -38,7 +38,7 @@ namespace QuanLyCuaHang_Services
                 Year = year,
                 Exp = exp
             };
-            _luuMatHang.CreateMatHang(mh, categoryId);
+            _luuMatHang.CreateMatHang(mh);
         }
         public List<MatHang> ReadListMatHang(string tuKhoa = "")
         {
