@@ -5,14 +5,20 @@ using QuanLyCuaHang_Services;
 
 namespace Web_QuanLyCuaHang_OOP.Pages
 {
-    public class MH_Them_LoaiHangModel : PageModel
+    public class MH_Them_MatHangModel : PageModel
     {
         public string chuoiThongBao;
         [BindProperty]
-        public string Id { get; set; }
+        public string categoryId { get; set; }
         [BindProperty]
         public string Name { get; set; }
-        private IXuLyLoaiHang _xuLyLoaiHang = new XuLyLoaiHang();
+        [BindProperty]
+        public string Company { get; set; }
+        [BindProperty]
+        public int Year { get; set; }
+        [BindProperty]
+        public DateTime Exp { get; set; }
+        private IXuLyMatHang _xuLyMatHang = new XuLyMatHang();
         public void OnGet()
         {
             chuoiThongBao = string.Empty;
@@ -23,9 +29,9 @@ namespace Web_QuanLyCuaHang_OOP.Pages
             
             try
             {
-                _xuLyLoaiHang.CreateLoaiHang(Id.Trim(), Name.Trim());
+                _xuLyMatHang.CreateMatHang(categoryId, Name, Company, Year, Exp);
                 chuoiThongBao = "Thêm thành công!";
-                Response.Redirect("/MH_DanhSach_LoaiHang");
+                Response.Redirect("/MH_DanhSach_MatHang");
             }
             catch (Exception ex)
             {

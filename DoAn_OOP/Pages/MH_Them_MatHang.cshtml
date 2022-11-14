@@ -1,0 +1,25 @@
+﻿@page
+@model Web_QuanLyCuaHang_OOP.Pages.MH_Them_MatHangModel
+@{
+    ViewData["title"] = "Thêm Mặt Hàng";
+}
+<h4>@ViewData["title"]</h4>
+<form method="post">
+    <label for="categoryId">Nhập Id Loại Hàng:</label><br/>
+    <input type="text" name="categoryId" value="" required/>
+    <span>-</span>
+    <a href="./MH_DanhSach_LoaiHang" target="_blank">Danh sách loại hàng</a>
+    <br/><br/>
+
+    <label for="name">Nhập Tên Mặt Hàng:</label><br/>
+    <input type="text" name="name" value="" required/><br/>
+    <label for="company">Nhập Công Ty Sản Xuất:</label><br/>
+    <input type="text" name="company" value="" required/><br/>
+    <label for="year">Nhập Năm Sản Xuất:</label><br/>
+    <input type="number" name="year" value="" required/><br/>
+    <label for="exp">Nhập Hạn Sử Dụng:</label><br/>
+    <input type="date" name="exp" value="" required/><br/><br />
+    
+    <input type="submit" value="Thêm"/>
+</form>
+@Model.chuoiThongBao

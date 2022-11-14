@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace QuanLyCuaHang_DAL
 {
-    internal interface ILuuLoaiHang
+    public interface ILuuLoaiHang
     {
         void CreateLoaiHang(LoaiHang lh);
         List<LoaiHang> ReadListLoaiHang();

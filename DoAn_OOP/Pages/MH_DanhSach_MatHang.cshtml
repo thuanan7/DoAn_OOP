@@ -1,0 +1,42 @@
+﻿@page
+@model Web_QuanLyCuaHang_OOP.Pages.MH_DanhSach_MatHangModel
+@{
+    ViewData["title"] = "Danh Sách Mặt Hàng";
+}
+
+<h4>@ViewData["title"]</h4>
+
+<form method="post">
+    <input type="text" name="tukhoa" value="" placeholder="Từ Khóa" />
+    <input type="submit" value="Search"/>
+</form>
+<a href="/MH_Them_MatHang">Thêm Mặt Hàng</a>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Tên</th>
+        <th>Công Ty</th>
+        <th>Loại Hàng</th>
+        <th>Năm Sản Xuất</th>
+        <th>Hạn Sử Dụng</th>
+        <th></th>
+    </tr>
+    @foreach (var s in Model.dsMatHang)
+    {
+        <tr>
+            <td>@s.Id</td>
+            <td>@s.Name</td>
+            <td>@s.Company</td>
+            <td>@s.Category</td>
+            <td>@s.Year</td>
+            <td>@s.Exp.ToString("dd/MM/yyyy")</td>
+            <td>
+                <a href="/MH_Sua_MatHang?Id=@s.Id">Sửa</a>
+                <span>-</span>
+                <a href="/MH_Xoa_MatHang?Id=@s.Id">Xóa</a>
+            </td>
+        </tr>
+    }
+    </>
+</table>
+@Model.chuoiThongBao

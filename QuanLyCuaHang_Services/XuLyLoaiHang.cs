@@ -5,7 +5,7 @@ namespace QuanLyCuaHang_Services
 {
     public class XuLyLoaiHang : IXuLyLoaiHang
     {
-        private LuuLoaiHang _luuLoaiHang = new LuuLoaiHang();
+        private ILuuLoaiHang _luuLoaiHang = new LuuLoaiHang();
         public void CreateLoaiHang(string id, string name)
         {
             if (string.IsNullOrEmpty(id))

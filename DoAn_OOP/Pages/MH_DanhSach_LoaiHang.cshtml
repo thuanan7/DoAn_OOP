@@ -1,10 +1,10 @@
 ﻿@page
 @model Web_QuanLyCuaHang_OOP.Pages.MH_DanhSach_LoaiHangModel
 @{
-    ViewData["Title"] = "Danh Sách Loại Hàng";
+    ViewData["title"] = "Danh Sách Loại Hàng";
 }
 
-<h4>Danh Sách Loại Hàng</h4>
+<h4>@ViewData["title"]</h4>
 
 <form method="post">
     <input type="text" name="tukhoa" value="" placeholder="Từ Khóa" />
