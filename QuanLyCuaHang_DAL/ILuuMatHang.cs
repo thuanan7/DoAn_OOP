@@ -11,9 +11,11 @@ namespace QuanLyCuaHang_DAL
     {
         void CreateMatHang(MatHang mh);
         List<MatHang> ReadListMatHang();
+        List<MatHang> ReadListMatHangByCategoryId(string categoryId);
         MatHang ReadMatHangById(string id);
         bool UpdateMatHang(MatHang mh);
         void UpdateCategoryMatHang(LoaiHang lh);
         bool DeleteMatHang(string id);
+        void DeleteMatHangByCategoryId(string categoryId);
     }
 }

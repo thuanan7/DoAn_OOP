@@ -54,6 +54,13 @@ namespace QuanLyCuaHang_Services
             }
             return list;
         }
+        public List<MatHang> ReadListMatHangByCategoryId(string categoryId)
+        {
+            if (string.IsNullOrEmpty(categoryId))
+                throw new Exception("Id Loại Hàng không hợp lệ!");
+
+            return _luuMatHang.ReadListMatHangByCategoryId(categoryId);
+        }
         public MatHang ReadMatHangById(string id)
         {
             if (string.IsNullOrEmpty(id))

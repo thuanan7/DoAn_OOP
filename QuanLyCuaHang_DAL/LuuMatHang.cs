@@ -34,7 +34,7 @@ namespace QuanLyCuaHang_DAL
             return categoryId + "_" + max.ToString();
         }
 
-         public void CreateMatHang(MatHang mh)
+        public void CreateMatHang(MatHang mh)
         {
             var dsMatHang = ReadListMatHang();
             mh.Id = CreateIdMatHang(mh.CategoryId);
@@ -59,6 +59,17 @@ namespace QuanLyCuaHang_DAL
                     return h;
             }
             return null;
+        }
+
+        public List<MatHang> ReadListMatHangByCategoryId(string categoryId)
+        {
+            var dsMatHang = ReadListMatHang();
+            List<MatHang> lst = new List<MatHang>();
+            foreach (var s in dsMatHang)
+            {
+                if (s.CategoryId == categoryId) lst.Add(s);
+            }
+            return lst;
         }
         public bool UpdateMatHang(MatHang mh)
         {
@@ -102,6 +113,19 @@ namespace QuanLyCuaHang_DAL
                 }
             }
             return false;
+        }
+        public void DeleteMatHangByCategoryId(string categoryId)
+        {
+            var dsMatHang = ReadListMatHang();
+            for (int i = 0; i < dsMatHang.Count; i++)
+            {
+                if (dsMatHang[i].CategoryId == categoryId)
+                {
+                    dsMatHang.RemoveAt(i);
+                    i--;
+                }
+            }
+            LuuListSanPham(dsMatHang);
         }
     }
 }

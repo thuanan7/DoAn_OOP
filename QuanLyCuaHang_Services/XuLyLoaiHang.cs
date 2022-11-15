@@ -78,6 +78,8 @@ namespace QuanLyCuaHang_Services
             bool res = _luuLoaiHang.DeleteLoaiHang(id);
             if (!res)
                 throw new Exception("Không tìm thấy Loại Hàng để xóa!");
+
+            _luuMatHang.DeleteMatHangByCategoryId(id);
         }
     }
 }

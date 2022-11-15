@@ -8,8 +8,11 @@ namespace Web_QuanLyCuaHang_OOP.Pages
     public class MH_Xoa_LoaiHangModel : PageModel
     {
         public string chuoiThongBao = String.Empty;
+        public int soLuong = 0;
         private IXuLyLoaiHang _xuLyLoaiHang = new XuLyLoaiHang();
+        private IXuLyMatHang _xuLyMatHang = new XuLyMatHang();
         public LoaiHang lh = new();
+        public List<MatHang> dsMatHang = new List<MatHang>();
         [BindProperty(SupportsGet = true)]
         public string Id { get; set; }
         public void OnGet()
@@ -23,6 +26,8 @@ namespace Web_QuanLyCuaHang_OOP.Pages
                 try
                 {
                     lh = _xuLyLoaiHang.ReadLoaiHangById(Id);
+                    dsMatHang = _xuLyMatHang.ReadListMatHangByCategoryId(Id);
+                    soLuong = dsMatHang.Count;
                 }
                 catch (Exception ex)
                 {
