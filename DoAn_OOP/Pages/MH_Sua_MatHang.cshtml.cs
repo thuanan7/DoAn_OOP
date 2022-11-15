@@ -45,6 +45,7 @@ namespace Web_QuanLyCuaHang_OOP.Pages
         {
             try
             {
+                mh = _xuLyMatHang.ReadMatHangById(ID);
                 MatHang MatHang = new MatHang()
                 {
                     Id = ID,
@@ -56,20 +57,11 @@ namespace Web_QuanLyCuaHang_OOP.Pages
                     SoLuong = mh.SoLuong
                 };
                 _xuLyMatHang.UpdateMatHang(MatHang);
-                mh = MatHang;
-                Response.Redirect($"./MH_Sua_MatHang?Id={mh.Id}");
+                Response.Redirect($"./MH_Sua_MatHang?Id={MatHang.Id}");
             }
             catch (Exception ex)
             {
                 chuoiThongBao = ex.Message;
-                try
-                {
-                    mh = _xuLyMatHang.ReadMatHangById(ID);
-                }
-                catch (Exception ex2)
-                {
-                    chuoiThongBao = ex2.Message;
-                }
             }
         }
     }

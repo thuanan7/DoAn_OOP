@@ -1,0 +1,39 @@
+﻿@page
+@model Web_QuanLyCuaHang_OOP.Pages.MH_DanhSach_DonNhapModel
+@{
+    ViewData["title"] = "Danh Sách Hóa Đơn Nhập Hàng";
+}
+
+<h4>@ViewData["title"]</h4>
+
+<form method="post">
+    <input type="text" name="tukhoa" value="" placeholder="Từ Khóa" />
+    <input type="submit" value="Search"/>
+</form>
+<a href="/MH_Them_DonNhap">Tạo Đơn Nhập Hàng</a>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Ngày Tạo Đơn</th>
+        <th></th>
+        <th></th>
+    </tr>
+    @foreach (var s in Model.dsDonNhap)
+    {
+        <tr>
+            <td>@s.Id</td>
+            <td>@s.NgayTao.ToString("dd/MM/yyyy")</td>
+
+            <td>
+                <a href="/MH_Sua_DonNhap?Id=@s.Id">Sửa</a>
+                <span>-</span>
+                <a href="/MH_Xoa_DonNhap?Id=@s.Id">Xóa</a>
+            </td>
+            <td>
+                <a href="/MH_ChiTiet_DonNhap?Id=@s.Id">Xem Chi Tiết</a>
+            </td>
+        </tr>
+    }
+    </>
+</table>
+@Model.chuoiThongBao

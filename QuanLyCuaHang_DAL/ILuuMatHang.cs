@@ -15,6 +15,7 @@ namespace QuanLyCuaHang_DAL
         MatHang ReadMatHangById(string id);
         bool UpdateMatHang(MatHang mh);
         void UpdateCategoryMatHang(LoaiHang lh);
+        bool UpdateSoLuongHangOfMatHang(MatHang mh, int soLuong);
         bool DeleteMatHang(string id);
         void DeleteMatHangByCategoryId(string categoryId);
     }

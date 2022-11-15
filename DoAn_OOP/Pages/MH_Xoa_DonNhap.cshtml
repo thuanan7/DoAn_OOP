@@ -1,0 +1,26 @@
+﻿@page
+@model Web_QuanLyCuaHang_OOP.Pages.MH_Xoa_DonNhapModel
+@{
+    ViewData["title"] = "Xóa Đơn Nhập";
+}
+
+<h4>@ViewData["title"]</h4>
+
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Ngày Tạo Đơn</th>
+    </tr>
+    <tr>
+        <td>@Model.h.Id</td>
+        <td>@Model.h.NgayTao.ToString("dd/MM/yyyy")</td>
+    </tr>
+</table>
+<span>Bạn có chắc chắn muốn xóa?</span>
+<br />
+<form method="post">
+    <input type="submit" value="Xóa" />
+</form>
+@Model.chuoiThongBao
+
+

@@ -1,0 +1,30 @@
+﻿@page
+@model Web_QuanLyCuaHang_OOP.Pages.MH_Sua_DonNhapModel
+@{
+    ViewData["title"] = "Sửa Đơn Nhập";
+}
+
+<h4>@ViewData["title"]</h4>
+
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Ngày Tạo Đơn</th>
+    </tr>
+    <tr>
+        <td>@Model.h.Id</td>
+        <td>@Model.h.NgayTao.ToString("dd/MM/yyyy")</td>
+    </tr>
+</table>
+<br />
+<form method="post">
+    <label for="newId">Nhập Id:</label><br />
+    <input type="text" name="newId" value="@Model.h.Id" required/><br />
+    <label for="newNgayTao">Nhập Ngày Tạo Đơn:</label><br />
+    <input type="date" name="newNgayTao" value="@Model.h.NgayTao.ToString("yyyy/MM/dd".Replace('/','-'))" required/>
+    <br /><br />
+
+    <input type="submit" value="Sửa" />
+</form>
+@Model.chuoiThongBao
+

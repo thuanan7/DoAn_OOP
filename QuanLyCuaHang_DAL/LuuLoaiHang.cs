@@ -6,7 +6,7 @@ namespace QuanLyCuaHang_DAL
     public class LuuLoaiHang : ILuuLoaiHang
     {
         private string filePath = "./files/LoaiHang.txt";
-        private void LuuListSanPham(List<LoaiHang> ds)
+        private void LuuListLoaiHang(List<LoaiHang> ds)
         {
             StreamWriter sw = new StreamWriter(filePath);
             string json = JsonConvert.SerializeObject(ds);
@@ -18,7 +18,7 @@ namespace QuanLyCuaHang_DAL
         {
             var dsLoaiHang = ReadListLoaiHang();
             dsLoaiHang.Add(lh);
-            LuuListSanPham(dsLoaiHang);
+            LuuListLoaiHang(dsLoaiHang);
         }
 
         public List<LoaiHang> ReadListLoaiHang()
@@ -48,7 +48,7 @@ namespace QuanLyCuaHang_DAL
                 if (dsLoaiHang[i].Id == lh.Id)
                 {
                     dsLoaiHang[i] = lh;
-                    LuuListSanPham(dsLoaiHang);
+                    LuuListLoaiHang(dsLoaiHang);
                     return true;
                 }
             }
@@ -62,7 +62,7 @@ namespace QuanLyCuaHang_DAL
                 if (dsLoaiHang[i].Id == id)
                 {
                     dsLoaiHang.RemoveAt(i);
-                    LuuListSanPham(dsLoaiHang);
+                    LuuListLoaiHang(dsLoaiHang);
                     return true;
                 }
             }

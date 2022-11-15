@@ -1,0 +1,24 @@
+﻿@page
+@model Web_QuanLyCuaHang_OOP.Pages.MH_ChiTiet_DonNhapModel
+@{
+    ViewData["title"] = "Chi Tiết Hóa Đơn Nhập Hàng";
+}
+
+<h4>@ViewData["title"]</h4>
+
+<a href="/MH_DanhSach_DonNhap">&lt;&lt; Quay Lại</a>
+<table>
+    <tr>
+        <th>Id Mặt Hàng</th>
+        <th>Số lượng</th>
+    </tr>
+    @foreach (var s in Model.h.DanhSachHang)
+    {
+        <tr>
+            <td>@s.IDMatHang</td>
+            <td>@s.SoLuong</td>
+        </tr>
+    }
+    </>
+</table>
+@Model.chuoiThongBao

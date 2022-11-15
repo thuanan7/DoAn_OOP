@@ -100,6 +100,23 @@ namespace QuanLyCuaHang_DAL
             }
             LuuListSanPham(dsMatHang);
         }
+        public bool UpdateSoLuongHangOfMatHang(MatHang mh, int soLuong)
+        {
+            var dsMatHang = ReadListMatHang();
+            for (int i = 0; i < dsMatHang.Count; i++)
+            {
+                if (dsMatHang[i].Id == mh.Id)
+                {
+                    int res = dsMatHang[i].SoLuong + soLuong;
+                    if (res < 0)
+                        return false;
+
+                    dsMatHang[i].SoLuong = res;
+                }
+            }
+            LuuListSanPham(dsMatHang);
+            return true;
+        }
         public bool DeleteMatHang(string id)
         {
             var dsMatHang = ReadListMatHang();

@@ -1,0 +1,30 @@
+﻿@page
+@model Web_QuanLyCuaHang_OOP.Pages.MH_Them_DonNhapModel
+@{
+    ViewData["title"] = "Thêm Đơn Nhập";
+}
+<h4>@ViewData["title"]</h4>
+<form method="post">
+    <label for="id1">Nhập ID mặt hàng 1:</label><br />
+    <input type="text" name="id1" value="" required/><br />
+    <label for="n1">Nhập số lượng mặt hàng 1:</label><br />
+    <input type="number" name="n1" value="" min="0" required/><br />
+    <br />
+    <label for="id2">Nhập ID mặt hàng 2(nếu có):</label><br />
+    <input type="text" name="id2" value="" /><br />
+    <label for="n2">Nhập số lượng mặt hàng 2:</label><br />
+    <input type="number" name="n2" value="" min="0"/><br />
+    <br />
+    <label for="id3">Nhập ID mặt hàng 3(nếu có):</label><br />
+    <input type="text" name="id3" value="" /><br />
+    <label for="n3">Nhập số lượng mặt hàng 3:</label><br />
+    <input type="number" name="n3" value="" min="0"/><br />
+
+    <br />
+
+    <input type="submit" value="Thêm"/>
+</form>
+@Model.chuoiThongBao
+
+
+
