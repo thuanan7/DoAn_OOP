@@ -41,6 +41,7 @@ namespace Web_QuanLyCuaHang_OOP.Pages
                 };
                 _xuLyDonNhap.CreateDonNhap(ds);
                 chuoiThongBao = "Tạo Hóa Đơn Nhập Hàng Thành Công!";
+                Response.Redirect("./MH_DanhSach_DonNhap");
             }
             catch (Exception ex)
             {

@@ -1,32 +1,10 @@
 ﻿@page
-@model Web_QuanLyCuaHang_OOP.Pages.MH_Xoa_LoaiHangModel
+@model Web_QuanLyCuaHang_OOP.Pages.MH_ThongKe_HetHanModel
 @{
-    ViewData["title"] = "Xóa Loại Hàng";
+    ViewData["title"] = "Thống Kê Mặt Hàng Hết Hạn";
 }
 
 <h4>@ViewData["title"]</h4>
-
-<a href="/MH_DanhSach_LoaiHang">&lt;&lt; Quay Lại</a>
-<table>
-    <tr>
-        <th>Id</th>
-        <th>Tên</th>
-    </tr>
-    <tr>
-        <td>@Model.lh.Id</td>
-        <td>@Model.lh.Name</td>
-    </tr>
-</table>
-<span>Hiện có @Model.soLuong mặt hàng có loại hàng này!</span>
-<br /><br />
-<span>Bạn có chắc chắn muốn xóa?</span>
-<br />
-<form method="post">
-    <input type="submit" value="Xóa" />
-</form>
-@Model.chuoiThongBao
-
-<br /><br />
 
 <table>
     <tr>
@@ -52,3 +30,4 @@
     }
     </>
 </table>
+@Model.chuoiThongBao

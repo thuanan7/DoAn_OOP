@@ -1,1 +1,1 @@
-[{"Id":"Ban_2","NgayTao":"2022-11-16T09:18:02.4166824+07:00","DanhSachHang":[{"IDMatHang":"lh1_4","SoLuong":10}]}]
+[{"Id":"Ban_1","NgayTao":"2022-11-16T11:33:03.3248739+07:00","DanhSachHang":[{"IDMatHang":"IPAD_2","SoLuong":1}]}]

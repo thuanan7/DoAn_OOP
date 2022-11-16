@@ -1,10 +1,29 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Trang Chủ";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Quản Lý Cửa Hàng</h1>
+    <ol>
+        <li>
+            <a href="./MH_DanhSach_LoaiHang">Danh Sách Loại Hàng</a>
+        </li>
+        <li>
+            <a href="./MH_DanhSach_MatHang">Danh Sách Mặt Hàng</a>
+        </li>
+        <li>
+            <a href="./MH_DanhSach_DonBan">Danh Sách Hóa Đơn Bán Hàng</a>
+        </li>
+        <li>
+            <a href="./MH_DanhSach_DonNhap">Danh Sách Hóa Đơn Nhập Hàng</a>
+        </li>
+        <li>
+            <a href="./MH_ThongKe_MatHang">Thống Kê Mặt Hàng Còn Hàng Trong Kho</a>
+        </li>
+        <li>
+            <a href="./MH_ThongKe_HetHan">Thống Kê Mặt Hàng Hết Hạn Sử Dụng</a>
+        </li>
+    </ol>
 </div>

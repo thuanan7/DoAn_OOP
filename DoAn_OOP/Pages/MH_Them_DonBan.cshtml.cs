@@ -41,6 +41,7 @@ namespace Web_QuanLyCuaHang_OOP.Pages
                 };
                 _xuLyDonBan.CreateDonBan(ds);
                 chuoiThongBao = "Tạo Hóa Đơn Bán Hàng Thành Công!";
+                Response.Redirect("./MH_DanhSach_DonBan");
             }
             catch (Exception ex)
             {

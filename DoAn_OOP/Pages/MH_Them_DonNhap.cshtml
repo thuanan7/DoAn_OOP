@@ -4,9 +4,13 @@
     ViewData["title"] = "Thêm Đơn Nhập";
 }
 <h4>@ViewData["title"]</h4>
+<a href="/MH_DanhSach_DonNhap">&lt;&lt; Quay Lại</a>
 <form method="post">
     <label for="id1">Nhập ID mặt hàng 1:</label><br />
-    <input type="text" name="id1" value="" required/><br />
+    <input type="text" name="id1" value="" required/>
+    <span>-</span>
+    <a href="./MH_DanhSach_MatHang" target="_blank">Danh sách mặt hàng</a>
+    <br/>
     <label for="n1">Nhập số lượng mặt hàng 1:</label><br />
     <input type="number" name="n1" value="" min="0" required/><br />
     <br />
