@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace QuanLyCuaHang_Services
 {
-    public class XuLyDonNhap : IXuLyDonNhap
+    public class XuLyDonBan : IXuLyDonBan
     {
-        private ILuuTruDonNhap _luuDonNhap = new LuuTruDonNhap();
+        private ILuuTruDonBan _luuDonBan = new LuuTruDonBan();
         private ILuuMatHang _luuMatHang = new LuuMatHang();
-        public void CreateDonNhap(List<KienHang> ds)
+        public void CreateDonBan(List<KienHang> ds)
         {
             HoaDon hd = new HoaDon();
             List<MatHang> dsMatHangCanCapNhat = new List<MatHang>();
@@ -27,6 +27,12 @@ namespace QuanLyCuaHang_Services
                     if (mh == null)
                         throw new Exception($"Không tìm thấy Id mặt hàng: {kienHang.IDMatHang}");
 
+                    //Đơn bán  khác đơn nhập chỗ này
+                    int res = mh.SoLuong - kienHang.SoLuong;
+                    if (res < 0)
+                        throw new Exception($"Id mặt hàng: {mh.Id} không đủ số lượng để bán!");
+                    //
+
                     hd.DanhSachHang.Add(kienHang);
                     dsMatHangCanCapNhat.Add(mh);
                 }
@@ -35,44 +41,45 @@ namespace QuanLyCuaHang_Services
             int idx = 0;
             foreach (var x in dsMatHangCanCapNhat)
             {
-                _luuMatHang.UpdateSoLuongHangOfMatHang(x, hd.DanhSachHang[idx].SoLuong);
+                //Đơn bán  khác đơn nhập chỗ này thay dấu trừ 
+                _luuMatHang.UpdateSoLuongHangOfMatHang(x, -hd.DanhSachHang[idx].SoLuong);
                 idx++;
             }
-            _luuDonNhap.CreateDonNhap(hd);
+            _luuDonBan.CreateDonBan(hd);
         }
-        public List<HoaDon> ReadListDonNhap(string tuKhoa = "")
+        public List<HoaDon> ReadListDonBan(string tuKhoa = "")
         {
-            var dsDonNhap = _luuDonNhap.ReadListDonNhap();
+            var dsDonBan = _luuDonBan.ReadListDonBan();
             if (string.IsNullOrEmpty(tuKhoa))
-                return dsDonNhap;
+                return dsDonBan;
 
             var list = new List<HoaDon>();
-            foreach (var item in dsDonNhap)
+            foreach (var item in dsDonBan)
             {
                 if (item.Id.Contains(tuKhoa.Trim(), StringComparison.OrdinalIgnoreCase))
                     list.Add(item);
             }
             return list;
         }
-        public HoaDon ReadDonNhapById(string id)
+        public HoaDon ReadDonBanById(string id)
         {
             if (string.IsNullOrEmpty(id))
                 throw new Exception("Id không hợp lệ!");
 
-            HoaDon h = _luuDonNhap.ReadDonNhapById(id);
+            HoaDon h = _luuDonBan.ReadDonBanById(id);
             if (h == null)
                 throw new Exception("Id không tồn tại!");
 
             return h;
         }
-        public void UpdateDonNhap(HoaDon hOld, HoaDon hNew)
+        public void UpdateDonBan(HoaDon hOld, HoaDon hNew)
         {
             if (string.IsNullOrEmpty(hNew.Id))
                 throw new Exception("Id không hợp lệ!");
 
             if (hNew.Id != hOld.Id)
             {
-                HoaDon h = _luuDonNhap.ReadDonNhapById(hNew.Id);
+                HoaDon h = _luuDonBan.ReadDonBanById(hNew.Id);
                 if (h != null)
                     throw new Exception("Id đã tồn tại!");
             }
@@ -80,18 +87,18 @@ namespace QuanLyCuaHang_Services
             if (!hNew.DanhSachHang.SequenceEqual(hOld.DanhSachHang))
                 throw new Exception("Không được phép thay đổi danh sách kiện hàng đã Nhập/Bán!");
 
-            bool res = _luuDonNhap.UpdateDonNhap(hOld, hNew);
+            bool res = _luuDonBan.UpdateDonBan(hOld, hNew);
             if (!res)
                 throw new Exception("Không tìm thấy Đơn Hàng để sửa!");
         }
-        public void DeleteDonNhap(string id)
+        public void DeleteDonBan(string id)
         {
             if (string.IsNullOrEmpty(id))
                 throw new Exception("Id không hợp lệ!");
 
-            bool res = _luuDonNhap.DeleteDonNhap(id);
+            bool res = _luuDonBan.DeleteDonBan(id);
             if (!res)
-                throw new Exception("Không tìm thấy Hoá Đơn Nhập để xóa!");
+                throw new Exception("Không tìm thấy Hoá Đơn Bán để xóa!");
         }
     }
 }

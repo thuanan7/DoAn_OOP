@@ -1,1 +1,1 @@
-[{"Id":"lh1_4","Name":"mathang1","Company":"congty1","CategoryId":"lh1","Category":"test1","Year":2019,"Exp":"2022-11-11T00:00:00","SoLuong":0},{"Id":"lh1_3","Name":"dientu","Company":"apple","CategoryId":"lh1","Category":"test1","Year":2022,"Exp":"2022-11-04T00:00:00","SoLuong":50}]
+[{"Id":"lh1_4","Name":"mathang1","Company":"congty1","CategoryId":"lh1","Category":"test1","Year":2019,"Exp":"2022-11-11T00:00:00","SoLuong":9},{"Id":"lh1_3","Name":"dientu","Company":"apple","CategoryId":"lh1","Category":"test1","Year":2022,"Exp":"2022-11-04T00:00:00","SoLuong":49}]

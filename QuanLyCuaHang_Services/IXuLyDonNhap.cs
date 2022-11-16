@@ -9,7 +9,7 @@ namespace QuanLyCuaHang_Services
 {
     public interface IXuLyDonNhap
     {
-        void CreateDonNhap(List<Hang> ds);
+        void CreateDonNhap(List<KienHang> ds);
         List<HoaDon> ReadListDonNhap(string tuKhoa="");
         HoaDon ReadDonNhapById(string id);
         void UpdateDonNhap(HoaDon hOld, HoaDon hNew);

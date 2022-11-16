@@ -5,9 +5,9 @@ using QuanLyCuaHang_Services;
 
 namespace Web_QuanLyCuaHang_OOP.Pages
 {
-    public class MH_Them_DonNhapModel : PageModel
+    public class MH_Them_DonBanModel : PageModel
     {
-        private IXuLyDonNhap _xuLyDonNhap = new XuLyDonNhap();
+        private IXuLyDonBan _xuLyDonBan = new XuLyDonBan();
         public string chuoiThongBao;
         [BindProperty]
         public string ID1 { get; set; }
@@ -39,8 +39,8 @@ namespace Web_QuanLyCuaHang_OOP.Pages
                     new KienHang(ID2, n2),
                     new KienHang(ID3, n3)
                 };
-                _xuLyDonNhap.CreateDonNhap(ds);
-                chuoiThongBao = "Tạo Hóa Đơn Nhập Hàng Thành Công!";
+                _xuLyDonBan.CreateDonBan(ds);
+                chuoiThongBao = "Tạo Hóa Đơn Bán Hàng Thành Công!";
             }
             catch (Exception ex)
             {

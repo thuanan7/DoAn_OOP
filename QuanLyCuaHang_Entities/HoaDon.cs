@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace QuanLyCuaHang_Entities
 {
-    public class Hang
+    public class KienHang
     {
         public string  IDMatHang { get; set; }
         public int SoLuong { get; set; }
-        public Hang(string id, int soluong)
+        public KienHang(string id, int soluong)
         {
             IDMatHang= id;
             SoLuong = soluong;
@@ -21,12 +21,12 @@ namespace QuanLyCuaHang_Entities
     {
         public string Id { get; set; }
         public DateTime NgayTao { get; set; }
-        public List<Hang> DanhSachHang { get; set; }
+        public List<KienHang> DanhSachHang { get; set; }
         public HoaDon()
         {
             Id = string.Empty;
             NgayTao= DateTime.Now;
-            DanhSachHang = new List<Hang>();
+            DanhSachHang = new List<KienHang>();
         }
     }
 }
